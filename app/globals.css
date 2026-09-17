@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  @apply bg-canvas text-ink antialiased;
+}
+
+/* Remove iOS input zoom by keeping font-size >= 16px on inputs */
+input,
+textarea,
+select {
+  font-size: 16px;
+}
+
+@layer components {
+  .input-base {
+    @apply w-full rounded-xl border bg-white px-4 py-3.5 text-[16px] text-ink placeholder:text-[#98A2B3]
+      transition-all duration-200 outline-none
+      focus:border-accent focus:ring-4 focus:ring-accent/15;
+  }
+  .input-ok {
+    @apply border-line hover:border-[#D0D5DD];
+  }
+  .input-error {
+    @apply border-red-400 bg-red-50/40 focus:border-red-500 focus:ring-red-100;
+  }
+  .label-base {
+    @apply mb-2 block text-[15px] font-semibold text-ink;
+  }
+  .helper-base {
+    @apply mt-2 text-[13px] leading-relaxed text-muted;
+  }
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl bg-accent px-7 py-4 text-[16px] font-bold tracking-wide text-white
+      shadow-accent transition-all duration-200
+      hover:bg-accent-hover hover:shadow-lg active:scale-[0.98]
+      focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent
+      disabled:cursor-not-allowed disabled:opacity-60 disabled:active:scale-100;
+  }
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl border border-line bg-white px-6 py-4 text-[16px] font-semibold text-ink
+      transition-all duration-200 hover:border-[#D0D5DD] hover:bg-gray-50 active:scale-[0.98]
+      focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent
+      disabled:cursor-not-allowed disabled:opacity-50;
+  }
+}
